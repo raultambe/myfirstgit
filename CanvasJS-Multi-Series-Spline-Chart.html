@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme:"light2",
+	animationEnabled: true,
+	title:{
+		text: "Game of Thrones Viewers of the First Airing on HBO"
+	},
+	axisY :{
+		title: "Number of Viewers",
+		suffix: "mn"
+	},
+	toolTip: {
+		shared: "true"
+	},
+	legend:{
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	data: [{"type":"spline","showInLegend":"true","yValueFormatString":"##.00rs","name":" GLACIAL ACETIC ACID ","dataPoints":[{"label":"May 2022","y":"77740.00"},{"label":"Jun 2022","y":"58500.00"}]},
+{"type":"spline","showInLegend":"true","yValueFormatString":"##.00rs","name":"MIBK ( Methyl Isobutyl Ketone)","dataPoints":[{"label":"May 2022","y":"124546.71"},{"label":"Jun 2022","y":"123700.00"}]}]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; max-width: 920px; margin: 0px auto;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
